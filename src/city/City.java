@@ -15,12 +15,14 @@ public class City {
     }
 
     public void increaseStats(int money, int resources, int food, int happiness) {
-        float coefficient = happiness / 100F;
+        float coefficient = this.happiness / 100F;
 
         this.money = this.money + (int) (money * coefficient);
         this.resources = this.resources + (int) (resources * coefficient);
         this.food = this.food + (int) (food * coefficient);
         this.happiness += Math.min(happiness, 100); //т.к. уровень счастье выше 100 не поднимается
+
+        checkLoss();
     }
 
     private void checkLoss() {
