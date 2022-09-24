@@ -21,7 +21,7 @@ public class City {
         this.happiness += Math.min(happiness, 100); //т.к. уровень счастье выше 100 не поднимается
     }
 
-    private void checkLost() {
+    private void checkLoss() {
         if (money < 0 || resources < 0 || food < 0 || happiness < 0) {
             System.out.println("Вы проиграли");
         }
