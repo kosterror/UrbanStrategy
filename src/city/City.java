@@ -6,12 +6,14 @@ public class City {
     private int resources;
     private int food;
     private int happiness;
+    private boolean isLose;
 
     public City() {
         money = 0;
         resources = 0;
         food = 0;
         happiness = 0;
+        isLose = false;
     }
 
     public void increaseStats(int money, int resources, int food, int happiness) {
@@ -27,8 +29,12 @@ public class City {
 
     private void checkLoss() {
         if (money < 0 || resources < 0 || food < 0 || happiness < 0) {
-            System.out.println("Вы проиграли");
+            isLose = true;
+            System.exit(0); //мега-гениальный костыль
         }
     }
 
+    public boolean isLose() {
+        return isLose;
+    }
 }

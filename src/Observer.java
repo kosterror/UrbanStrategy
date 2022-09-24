@@ -4,15 +4,13 @@ import observer.IObserver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameTimer implements IObserver {
-
-    private boolean isRunning;
+public class Observer implements IObserver {
 
     List<IObservable> iObservables;
 
-    public GameTimer() {
+    public Observer() {
         iObservables = new ArrayList<>();
-        startTimer();
+        startUpdating();
     }
 
     @Override
@@ -32,11 +30,9 @@ public class GameTimer implements IObserver {
         }
     }
 
-    private void startTimer(){
-        isRunning = true;
-
+    private void startUpdating(){
         Thread run = new Thread(() -> {
-            while (isRunning) {
+            while (true) {
                 notifyObservable();
                 try {
                     Thread.sleep(15000);
@@ -49,7 +45,4 @@ public class GameTimer implements IObserver {
         run.start();
     }
 
-    public void loseGame() {
-        isRunning = false;
-    }
 }
