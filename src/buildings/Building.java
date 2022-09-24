@@ -14,6 +14,20 @@ abstract public class Building implements IObservable {
     private int foodPerTime;
     private int happinessPerTime;
 
+    public Building(City city,
+                    Pair<Integer> coordinates,
+                    int moneyPerTime,
+                    int resourcesPerTime,
+                    int foodPerTime,
+                    int happinessPerTime) {
+        this.city = city;
+        this.coordinates = coordinates;
+        this.moneyPerTime = moneyPerTime;
+        this.resourcesPerTime = resourcesPerTime;
+        this.foodPerTime = foodPerTime;
+        this.happinessPerTime = happinessPerTime;
+    }
+
     public void increaseTier(int tier) {
         float coefficient = 0.3F;
 
