@@ -17,10 +17,10 @@ public class City {
     public void increaseStats(int money, int resources, int food, int happiness) {
         float coefficient = this.happiness / 100F;
 
-        this.money = this.money + (int) (money * coefficient);
-        this.resources = this.resources + (int) (resources * coefficient);
-        this.food = this.food + (int) (food * coefficient);
-        this.happiness += Math.min(happiness, 100); //т.к. уровень счастье выше 100 не поднимается
+        this.money = (money>0)?this.money + (int) (money * coefficient):this.money + (int) (money / coefficient);
+        this.resources = (resources>0)?this.resources + (int) (resources * coefficient):this.resources + (int) (resources / coefficient);
+        this.food = (food>0)?this.food + (int) (food * coefficient):this.food + (int) (food / coefficient);
+        this.happiness = Math.min(this.happiness+happiness, 100); //т.к. уровень счастье выше 100 не поднимается
 
         checkLoss();
     }
