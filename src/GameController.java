@@ -3,6 +3,7 @@ import city.City;
 import enumeration.BuildingType;
 import utility.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -10,12 +11,13 @@ public class GameController {
     private final BuildingFactory buildingFactory;
     private final City city;
     private final Observer observer;
-    private List<Building> buildingList;
+    private final List<Building> buildingList;
 
     public GameController() {
         buildingFactory = new BuildingFactory();
         city = new City();
         observer = new Observer();
+        buildingList = new ArrayList<>();
     }
 
     public Building createBuilding(BuildingType type, Pair<Integer> coordinates) {
