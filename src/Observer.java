@@ -33,9 +33,9 @@ public class Observer implements IObserver {
     private void startUpdating(){
         Thread run = new Thread(() -> {
             while (true) {
-                notifyObservable();
                 try {
-                    Thread.sleep(15000);
+                    notifyObservable();
+                    Thread.sleep(2500);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

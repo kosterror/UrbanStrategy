@@ -8,11 +8,13 @@ public class GameController {
     private final BuildingFactory buildingFactory;
     private final City city;
     private final Observer observer;
+    private final CityLogger logger;
 
     public GameController() {
         buildingFactory = new BuildingFactory();
         city = new City();
         observer = new Observer();
+        logger = new CityLogger(city);
     }
 
     public Building createBuilding(BuildingType type, Pair<Integer> coordinates) {
