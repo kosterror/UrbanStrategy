@@ -1,10 +1,12 @@
 package buildings;
 
 import observer.IObservable;
+import city.City;
 import utility.Pair;
 
 abstract public class Building implements IObservable {
 
+    private City city;
     private int tier;
     private Pair<Integer> coordinates;
     private int moneyPerTime;
@@ -25,5 +27,8 @@ abstract public class Building implements IObservable {
         }
     }
 
-
+    @Override
+    public void update() {
+        city.increaseStats(moneyPerTime, resourcesPerTime, foodPerTime, happinessPerTime);
+    }
 }
